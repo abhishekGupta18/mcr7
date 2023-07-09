@@ -13,7 +13,7 @@ export const ContinentsPage = () => {
       </p>
       <ul className="flex justify-center items-center gap-8">
         {findContinent?.countries?.map((item) => (
-          <NavLink to={`/country/${item?.id}`}>
+          <NavLink to={`/country/${continentsId}/${item?.id}`}>
             <li>
               <img
                 src={item?.image}

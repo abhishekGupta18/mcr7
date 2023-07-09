@@ -1,12 +1,17 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useDataContext } from "../Context/DataContext";
+
 export const CountryPage = () => {
   const { data } = useDataContext();
   const { countryId } = useParams();
-  const findCountry = data?.continents?.countries?.find(
+  const { continentsId } = useParams();
+  const findContinent = data?.continents?.find(
+    (item) => item?.id === Number(continentsId)
+  );
+
+  const findCountry = findContinent?.countries?.find(
     (item) => item?.id === Number(countryId)
   );
-  console.log(findCountry);
   return (
     <div className="flex flex-col items-center my-16 gap-8">
       <p className="text-2xl font-medium text-primary-color">
@@ -14,7 +19,7 @@ export const CountryPage = () => {
       </p>
       <ul className="flex justify-center items-center gap-8">
         {findCountry?.destinations?.map((item) => (
-          <NavLink>
+          <NavLink to={`/destination/${continentsId}/${countryId}/${item?.id}`}>
             <li>
               <img
                 src={item?.image}
