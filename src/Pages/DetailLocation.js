@@ -49,8 +49,8 @@ export const DetailLocation = () => {
           <p>
             <strong>Ticket price:</strong> {findDestiny?.ticketPrice}
           </p>
-          <NavLink>
-            <strong>Website:</strong> {findDestiny?.website}
+          <NavLink to={findDestiny?.website}>
+            <strong>Website</strong>
           </NavLink>
         </div>
       </div>
